@@ -1,6 +1,6 @@
 import './App.css';
-import JsxRolues from "./lecture/jsxRolues";
-import JsxRolues_m from "./mission/jsxRolues";
+import JsxRolues from "./lecture/jsxRolues.js";
+import JsxRolues_m from "./mission/jsxRolues.js";
 
 function App() {
   return (
