@@ -1,12 +1,12 @@
 import './App.css';
-import JsxRolues from "./lecture/jsxRolues.js";
-import JsxRolues_m from "./mission/jsxRolues.js";
+import FruitsMap from './lecture/fruitsMap';
+import UseState from './lecture/useState';
 
 function App() {
   return (
     <div className="App">
-      <JsxRolues/>
-      <JsxRolues_m/>
+      {/* <FruitsMap/> */}
+      <UseState/>
     </div>
   );
 }
