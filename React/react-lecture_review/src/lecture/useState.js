@@ -1,20 +1,21 @@
 import { useState } from "react";
 
-const UseState = () => {
-    const [score, setScore] = useState(0);
+const HookUseState = () => {
+  const [score, setScore] = useState(0);
 
-    const addLetScore = () => {
-        setScore(score+1);
-    }
-    const minusLetScore = () => {
-        setScore(score-1 < 0 ? 0 : score - 1);
-    }
+  const addLetScore = () => {
+    setScore(score + 1);
+  };
+  const addMinusScore = () => {
+    setScore(score - 1 < 0 ? 0 : score - 1);
+  };
+
   return (
     <>
-      <h1>현재 점수 : {score}</h1>
+      <div>현재 점수 : {score}</div>
       <button onClick={addLetScore}>점수 +</button>
-      <button onClick={minusLetScore}>점수 -</button>
+      <button onClick={addMinusScore}>점수 -</button>
     </>
   );
 };
-export default UseState;
+export default HookUseState;

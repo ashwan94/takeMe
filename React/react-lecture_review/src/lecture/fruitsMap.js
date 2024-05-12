@@ -5,7 +5,6 @@ const FruitsMap = () => {
     { question: "Q3. 유치원?", answer: "A3. 떡잎유치원" },
     { question: "Q4. 강아지?", answer: "A4. 흰둥이" },
   ];
-
   const fruits = [
     { fruit: "사과", price: 1000 },
     { fruit: "바나나", price: 2000 },
@@ -19,28 +18,29 @@ const FruitsMap = () => {
       <h1 style={{ backgroundColor: "red" }}>1번 문제</h1>
       {qnaList.map((v, i) => {
         return (
-          <ul type="none" key={i}>
+          <ul key={i} type="none">
             <li>{v.question}</li>
             <li>{v.answer}</li>
           </ul>
         );
       })}
-
       <h1 style={{ backgroundColor: "red" }}>2번 문제</h1>
       {qnaList.map((v, i) => {
         return !v.question.includes("Q4") ? (
-          <ul type="none" key={i}>
-            <li>{v.question}</li> <li>{v.answer}</li>{" "}
+          <ul key={`qna-${i}`} type="none">
+            <li>{v.question}</li>
+            <li>{v.answer}</li>
           </ul>
         ) : null;
       })}
       <h1 style={{ backgroundColor: "red" }}>3번 문제</h1>
       {fruits.map((v, i) => {
         return (
-          <div key={i}>
-            <img src={`/images/fr${i + 1}.jpg`} style={{width:"100px"}}/>
+          <div key={`fr-${i}`} style={{backgroundColor:"pink"}}>
+            <img src={`/images/fr${i+1}.jpg`} alt={v.fruit}/>
             <div>
-              {v.fruit} <span>{v.price}원</span>
+              {v.fruit}
+              <span>{v.price}</span>
             </div>
           </div>
         );
@@ -48,4 +48,5 @@ const FruitsMap = () => {
     </>
   );
 };
+
 export default FruitsMap;
