@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.myspringmvc.file.FileMapper">
+    <insert id="saveFiles" parameterType="list">
+        insert into attached_file
+        (board_no, file_path, file_name, original_name, file_size)
+        <foreach collection="list" item="file" separator="union all">
+            select
+            #{file.boardNo}, #{file.filePath}, #{file.fileName}, #{file.originalName}, #{file.fileSize}
+            from
+            dual
+        </foreach>
+    </insert>
+    <select id="selectFileList" parameterType="int" resultType="fileVO">
+        select
+        id,
+        board_no,
+        file_path,
+        file_name,
+        original_name,
+        file_size,
+        create_date
+        from
+        attached_file
+        where
+        board_no = #{boardNo}
+        order by
+        board_no
+    </select>
+    <select id="selectFile" parameterType="int" resultType="fileVO">
+        select
+        id,
+        board_no,
+        file_path,
+        file_name,
+        original_name,
+        file_size,
+        create_date
+        from
+        attached_file
+        where
+        id = #{id}
+    </select>
+</mapper>

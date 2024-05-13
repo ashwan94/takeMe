@@ -1,0 +1,121 @@
+.shadow-button-set {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5vmin;
+
+  & > li {
+    display: inline-flex;
+    background: black;
+
+    &:is(:hover, :focus-within) > button:not(:active) {
+      --distance: -10px;
+    }
+  }
+
+  & button {
+    appearance: none;
+    outline: none;
+    font-size: 5vmin;
+    border: 3px solid black;
+    background: white;
+
+    --distance: 0;
+    transform: translateX(var(--distance)) translateY(var(--distance));
+
+    @media (prefers-reduced-motion: no-preference) {
+      will-change: transform;
+      transition: transform 0.2s ease;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  block-size: 100%;
+}
+
+body {
+  min-block-size: 100%;
+  font-family: system-ui, sans-serif;
+
+  display: grid;
+  place-content: center;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+button.fancy {
+  -webkit-appearance: button;
+  background-color: transparent;
+  border: 2px solid #000;
+  border-radius: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 1.25em 2em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+  width: 16.8125rem;
+
+  &::before {
+    content: " ";
+    width: 1.5625rem;
+    height: 2px;
+    background: black;
+    top: 50%;
+    left: 1.5em;
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transition: background 0.3s linear, width 0.3s linear;
+    transition: background 0.3s linear, width 0.3s linear;
+  }
+
+  &:hover {
+    color: white;
+    background: black;
+
+    &::before {
+      width: 0.9375rem;
+      background: white;
+    }
+
+    a {
+      color: white;
+      padding-left: 1.5em;
+    }
+
+    .top-key {
+      left: -2px;
+      width: 0px;
+    }
+    .bottom-key-1,
+    .bottom-key-2 {
+      right: 0;
+      width: 0;
+    }
+  }
+}

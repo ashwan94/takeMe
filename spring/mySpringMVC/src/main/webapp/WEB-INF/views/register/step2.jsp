@@ -11,7 +11,7 @@
     <title>회원 가입 - 개인정보 입력</title>
 </head>
 <body>
-    <h>회원정보 입력</h>
+    <h1>회원정보 입력</h1>
 <form action="step3" method="post">
     <p>
         <label>

@@ -14,4 +14,16 @@
 
 <!--   모든 @Component 를 Bean 으로 등록  -->
     <context:component-scan base-package="org.example.myspringmvc"/>
+
+    <!--    multipart/for-data 해결사-->
+    <bean class="org.springframework.web.multipart.support.StandardServletMultipartResolver" id="multipartResolver"/>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/board/add"/>
+            <mvc:mapping path="/board/update"/>
+            <mvc:mapping path="/board/delete"/>
+            <ref bean="authCheckInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
